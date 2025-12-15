@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { QUESTIONS, RESULTS } from './constants';
 import type { Screen, AnswerType, ResultType } from './types';
-import StartScreen from './components/StartScreen';
+import StartScreen from "./StartScreen";
 import QuizScreen from './components/QuizScreen';
 import ResultScreen from './components/ResultScreen';
 import LoadingScreen from './components/LoadingScreen';
