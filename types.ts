@@ -22,6 +22,8 @@ export interface Podcast {
 
 export interface Result {
   title: string;
+  icon: string;
+  description: string;
   podcasts: Podcast[];
 }
 

@@ -107,6 +107,8 @@ export const QUESTIONS: QuizQuestion[] = [
 export const RESULTS: Record<'A' | 'B' | 'C' | 'D', Result> = {
     A: {
         title: "故事陪伴系",
+        icon: "📖",
+        description: "你喜歡沉浸在故事的河流中，讓聲音帶你去到另一個世界。充滿畫面感的敘事，是你心靈最好的棲息地。",
         podcasts: [
             { name: "閱讀推手", link: "https://podcasts.apple.com/tw/podcast/%E9%96%B1%E8%AE%80%E6%8E%A8%E6%89%8B/id1525854237" },
             { name: "那些老外教我的事", link: "https://open.firstory.me/user/lessonsfromlaowai/platforms" },
@@ -116,6 +118,8 @@ export const RESULTS: Record<'A' | 'B' | 'C' | 'D', Result> = {
     },
     B: {
         title: "知識成長系",
+        icon: "💡",
+        description: "對你來說，聲音是獲取知識的媒介。你喜歡條理分明、有觀點的內容，讓每一分鐘的聆聽都成為自我成長的養分。",
         podcasts: [
             { name: "呼吸狂想實驗室", link: "https://open.firstory.me/user/cmgolq7q2008701w85amo5gfr/platforms" },
             { name: "建築新樂園", link: "https://podcasts.apple.com/tw/podcast/%E5%BB%BA%E7%AF%89%E6%96%B0%E6%A8%82%E5%9C%92/id1549878612" },
@@ -124,6 +128,8 @@ export const RESULTS: Record<'A' | 'B' | 'C' | 'D', Result> = {
     },
     C: {
         title: "生活感性系",
+        icon: "☕",
+        description: "你喜歡像朋友般的閒聊，真實的生活感讓你覺得不孤單。那些日常的瑣碎與心情分享，是你生活中最溫暖的調劑。",
         podcasts: [
             { name: "台灣幸福進行曲", link: "https://open.firstory.me/user/ckdzbn30ja5870880tixg6ezx/platforms" },
             { name: "餐桌上的哲學家", link: "https://open.firstory.me/user/cm32e7le402xq01vc3rtidr6f/platforms" }
@@ -131,6 +137,8 @@ export const RESULTS: Record<'A' | 'B' | 'C' | 'D', Result> = {
     },
     D: {
         title: "療癒勵志系",
+        icon: "🌿",
+        description: "你尋求的是心靈的平靜與安撫。溫柔的聲音、正向的鼓勵，能為你擋下世界的吵雜，為疲憊的心充飽電。",
         podcasts: [
             { name: "映心學堂", link: "https://open.firstory.me/user/cl1wuz8n9097v01w8c7p2hpfg/platforms" }
         ]

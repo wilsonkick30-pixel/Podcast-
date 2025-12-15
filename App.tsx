@@ -2,10 +2,10 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import { QUESTIONS, RESULTS } from './constants';
 import type { Screen, AnswerType, ResultType } from './types';
-import StartScreen from "./StartScreen";
-import QuizScreen from './QuizScreen'; // <--- 已修正
-import ResultScreen from './ResultScreen'; // <--- 已修正
-import LoadingScreen from './LoadingScreen'; // <--- 已修正
+import StartScreen from './components/StartScreen';
+import QuizScreen from './components/QuizScreen';
+import ResultScreen from './components/ResultScreen';
+import LoadingScreen from './components/LoadingScreen';
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('start');
