@@ -7,61 +7,65 @@ interface StartScreenProps {
 
 const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
   return (
-    <div className="flex flex-col items-center justify-center py-10 px-6 animate-fadeIn text-center">
+    <div className="flex flex-col items-center justify-center py-16 px-8 sm:px-12 animate-fadeIn text-center relative overflow-hidden">
       
-      {/* 裝飾性圖示區域 */}
-      <div className="relative mb-10">
-        <div className="w-32 h-32 bg-[#FFF0D4] rounded-full flex items-center justify-center relative z-10 shadow-[0_8px_20px_rgba(216,143,94,0.2)]">
-          <span className="text-6xl animate-pulse-slow">🎧</span>
+      {/* 裝飾線條 */}
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#FFDAB9] via-[#D88F5E] to-[#E6E6FA]"></div>
+
+      {/* 主圖示區塊 */}
+      <div className="relative mb-12 group cursor-pointer">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#D88F5E] to-[#FFDAB9] rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+        <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center relative z-10 shadow-xl border border-[#FFF5EB] group-hover:scale-105 transition-transform duration-500 ease-out">
+          <span className="text-7xl drop-shadow-sm filter">🎧</span>
+          
+          {/* 懸浮小元素 */}
+          <div className="absolute -right-2 top-0 bg-white p-2 rounded-2xl shadow-lg border border-[#f0f0f0] animate-bounce-slow">
+            <span className="text-2xl">✨</span>
+          </div>
+          <div className="absolute -left-2 bottom-2 bg-white p-2 rounded-2xl shadow-lg border border-[#f0f0f0] animate-pulse-slow">
+            <span className="text-2xl">🎵</span>
+          </div>
         </div>
-        {/* 背景裝飾圓圈 */}
-        <div className="absolute top-0 left-0 w-32 h-32 bg-[#D88F5E] rounded-full opacity-10 animate-ping-slow"></div>
-        <div className="absolute -top-3 -right-3 text-2xl animate-bounce-slow">✨</div>
       </div>
 
-      <h1 className="text-3xl sm:text-4xl font-extrabold text-[#D88F5E] mb-4 tracking-tight">
-        Podcast 聲音人格測驗
-      </h1>
-      
-      <div className="max-w-xs mx-auto mb-8">
-        <div className="h-1 w-16 bg-[#EFD3A7] mx-auto mb-6 rounded-full"></div>
-        <p className="text-[#6B5B4E] text-base leading-relaxed font-medium">
-          聲音不只是頻率，更是靈魂的共鳴。<br/>
-          花 <span className="text-[#D88F5E] font-bold">1 分鐘</span>，<br/>
-          找出此刻最懂你的聲音頻率。
-        </p>
+      <div className="relative z-10 max-w-lg">
+        <h1 className="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-br from-[#8B4513] to-[#D88F5E] mb-6 tracking-tight leading-tight">
+          尋找你的<br/>聲音人格
+        </h1>
+        
+        <div className="space-y-2 mb-10 text-[#6B5B4E]">
+          <p className="text-lg font-medium">聲音不只是頻率，更是靈魂的共鳴。</p>
+          <p className="text-base opacity-80">透過 1 分鐘的心理測驗，<br className="sm:hidden"/>探索此刻最適合你的聽覺頻率。</p>
+        </div>
+
+        <button
+          onClick={onStart}
+          className="group relative w-full sm:w-auto min-w-[200px] overflow-hidden rounded-full bg-[#4A3F35] py-4 px-10 text-lg font-bold text-white shadow-xl transition-all duration-300 hover:bg-[#2C241E] hover:shadow-2xl hover:-translate-y-1 active:scale-95 active:shadow-inner"
+        >
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
+          <span className="relative z-10 flex items-center justify-center gap-3">
+            開始測驗 <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </span>
+        </button>
+        
+        <p className="mt-6 text-xs text-[#9C8C7E] tracking-widest uppercase opacity-60">Start the journey</p>
       </div>
-
-      <button
-        onClick={onStart}
-        className="group relative w-full max-w-xs overflow-hidden rounded-full bg-[#D88F5E] py-4 px-8 text-lg font-bold text-white shadow-lg transition-all duration-300 hover:bg-[#C07A4B] hover:shadow-[#D88F5E]/40 hover:-translate-y-1 active:scale-95"
-      >
-        <span className="relative z-10 flex items-center justify-center gap-2">
-          開始測驗 <span>➜</span>
-        </span>
-      </button>
-
     </div>
   );
 };
 
 // CSS 動畫定義
 const customAnimations = `
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(5deg); }
+}
 @keyframes pulse-slow {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  50% { transform: scale(1.1); }
 }
-@keyframes ping-slow {
-  0% { transform: scale(1); opacity: 0.2; }
-  100% { transform: scale(1.5); opacity: 0; }
-}
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-.animate-pulse-slow { animation: pulse-slow 3s infinite ease-in-out; }
-.animate-ping-slow { animation: ping-slow 2s infinite cubic-bezier(0, 0, 0.2, 1); }
-.animate-bounce-slow { animation: bounce-slow 2.5s infinite ease-in-out; }
+.animate-bounce-slow { animation: bounce-slow 3s infinite ease-in-out; }
+.animate-pulse-slow { animation: pulse-slow 2.5s infinite ease-in-out; }
 `;
 
 const styleSheet = document.createElement("style");
