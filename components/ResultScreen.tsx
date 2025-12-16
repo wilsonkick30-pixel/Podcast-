@@ -77,12 +77,26 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart }) => {
             </div>
         </div>
 
+        {/* 抽獎活動按鈕 */}
+        <a
+            href="https://www.facebook.com/FamilyPodcasts"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full mb-4 bg-[#D88F5E] text-white font-bold text-lg py-4 px-6 rounded-full transition-all duration-300 hover:bg-[#B87345] hover:shadow-xl transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 group shadow-md"
+        >
+             <span className="text-xl animate-bounce">🎁</span> 到粉絲專頁精選貼文參加好禮抽獎
+        </a>
+
         <button
             onClick={onRestart}
             className="w-full bg-[#4A3F35] text-white font-bold text-lg py-4 px-6 rounded-full transition-all duration-300 hover:bg-[#2C241E] hover:shadow-xl transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 group"
         >
             <span className="group-hover:rotate-180 transition-transform duration-500">↻</span> 再測一次
         </button>
+
+        <div className="mt-8 text-center">
+            <p className="text-sm text-[#8B7355] font-bold tracking-wide opacity-80">好家庭聯播網製作</p>
+        </div>
       </div>
     </div>
   );

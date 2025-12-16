@@ -48,7 +48,10 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStart }) => {
           </span>
         </button>
         
-        <p className="mt-6 text-xs text-[#9C8C7E] tracking-widest uppercase opacity-60">Start the journey</p>
+        <div className="mt-10 flex flex-col items-center gap-2">
+            <p className="text-xs text-[#9C8C7E] tracking-widest uppercase opacity-40">Start the journey</p>
+            <p className="text-sm text-[#8B7355] font-bold tracking-wide opacity-90">好家庭聯播網製作</p>
+        </div>
       </div>
     </div>
   );
