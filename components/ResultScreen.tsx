@@ -77,15 +77,20 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ result, onRestart }) => {
             </div>
         </div>
 
-        {/* 抽獎活動按鈕 */}
-        <a
-            href="https://www.facebook.com/FamilyPodcasts"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full mb-4 bg-[#D88F5E] text-white font-bold text-lg py-4 px-6 rounded-full transition-all duration-300 hover:bg-[#B87345] hover:shadow-xl transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 group shadow-md"
-        >
-             <span className="text-xl animate-bounce">🎁</span> 到粉絲專頁精選貼文參加好禮抽獎
-        </a>
+        {/* 抽獎活動區域 */}
+        <div className="mb-6 text-center space-y-3">
+            <p className="text-[#8B7355] font-bold text-xl animate-pulse">
+                記得截圖跟我們分享你的聲音人格喔！
+            </p>
+            <a
+                href="https://www.facebook.com/FamilyPodcasts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-[#D88F5E] text-white font-bold text-lg py-4 px-6 rounded-full transition-all duration-300 hover:bg-[#B87345] hover:shadow-xl transform hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-2 group shadow-md"
+            >
+                 <span className="text-xl">🎁</span> 到粉絲專頁精選貼文參加好禮抽獎
+            </a>
+        </div>
 
         <button
             onClick={onRestart}
