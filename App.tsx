@@ -1,4 +1,4 @@
-
+import { supabase } from './supabaseClient';
 import React, { useState, useCallback, useMemo } from 'react';
 import { QUESTIONS, RESULTS } from './constants';
 import type { Screen, AnswerType, ResultType } from './types';
