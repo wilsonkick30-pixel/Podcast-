@@ -2,10 +2,12 @@ import { supabase } from './supabaseClient';
 import React, { useState, useCallback, useMemo } from 'react';
 import { QUESTIONS, RESULTS } from './constants';
 import type { Screen, AnswerType, ResultType } from './types';
-import StartScreen from './components/StartScreen';
-import QuizScreen from './components/QuizScreen';
-import ResultScreen from './components/ResultScreen';
-import LoadingScreen from './components/LoadingScreen';
+
+// ✅ 已修正：移除 ./components/ 路徑，因為您的檔案直接放在根目錄
+import StartScreen from './StartScreen';
+import QuizScreen from './QuizScreen';
+import ResultScreen from './ResultScreen';
+import LoadingScreen from './LoadingScreen';
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>('start');
@@ -33,7 +35,6 @@ export default function App() {
     setUserAnswers(newAnswers);
 
     if (currentQuestionIndex < QUESTIONS.length - 1) {
-      // Add a small delay for better UX flow
       setTimeout(() => {
         setCurrentQuestionIndex(prevIndex => prevIndex + 1);
       }, 250);
@@ -42,6 +43,16 @@ export default function App() {
         const finalResultType = calculateResult(newAnswers);
         setResultType(finalResultType);
         setScreen('result');
+
+        // ✨ 儲存結果到 Supabase
+        supabase
+          .from('test_results')
+          .insert([{ personality_type: finalResultType }])
+          .then(({ error }) => {
+            if (error) console.error('Supabase 儲存失敗:', error);
+            else console.log('統計資料已成功送出！');
+          });
+
       }, 250);
     }
   };
